@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.success-message {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 50px #00ff00;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.error-message {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 50px red;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.password-message {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 50px red;
+    margin-bottom: 90px;
+    text-align: center;
+}
+
+
+
+.message-box {
+    text-align: center;
+    margin-top: -150px;
+    margin-left: 1000px;
+    background-color: transparent;
+    width: 200px;
+}

@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Background */
+body {
+  background-image: url('../resources/image/system/login.png'); 
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+    background-repeat: no-repeat; 
+}
+
+
+/* Login Container */
+.login-container {
+	background-color: black;
+  height: 700px;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Avatar */
+.avatar {
+  position: absolute;
+  top: -15%;
+  margin-left: 100px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  font-size: 30px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Login Box */
+.login-box {
+  margin-top: 250px;
+  margin-left: 600px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  width: 350px;
+  height: 240px;
+  border-radius: 20px;
+  padding: 60px 30px 30px;
+  box-shadow: 0 15px 5px black;
+  position: relative;
+}
+
+/* Input Fields */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 35px 10px 10px;
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  font-size: 16px;
+  color: white;
+}
+
+.input-group input::placeholder {
+  color: white;
+}
+
+.input-group .icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+/* Login Button */
+button {
+  width: 60%;
+  margin-top: 52px;
+  margin-left: 50px;
+  padding: 12px;
+  padding-bottom: 10px;
+  border: none;
+  border-radius: 0 0 15px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}
+

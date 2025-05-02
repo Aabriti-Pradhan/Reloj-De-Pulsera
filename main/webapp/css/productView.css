@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  color: #333;
+  line-height: 1.5;
+}
+
+header {
+  background: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  justify-content: center;
+}
+
+.product-page {
+  padding: 20px;
+  background: #fff;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.top-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.images {
+  flex: 1;
+}
+
+.main-image {
+  background: url("../resources/image/system/products/watch1.jpg")
+		no-repeat center center/cover;
+  height: 450px;
+  margin-bottom: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+  background: url("../resources/image/system/products/watch1.jpg")
+		no-repeat center center/cover;
+}
+
+.thumb {
+  background: #ccc;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border: 1px solid #bbb;
+  cursor: pointer;
+}
+
+.info {
+  flex: 1;
+}
+
+.sizes {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.sizes button {
+  margin: 5px 5px 5px 0;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.price-qty {
+  margin-top: 10px;
+}
+
+.qty-control {
+  margin-top: 10px;
+}
+
+.qty-control input {
+  width: 60px;
+  padding: 5px;
+}
+
+.buttons {
+  margin: 15px 0;
+}
+
+.add-to-cart,
+.buy-now {
+  padding: 10px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.add-to-cart {
+  background: #eee;
+}
+
+.buy-now {
+  background: black;
+  color: white;
+}
+
+.note {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 10px;
+}
+
+.feature-watch {
+  background: #eee;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  
+}
+
+.feature-image {
+  background: #ccc;
+  height: 200px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../resources/image/system/products/watch3.jpg")
+		no-repeat center center/cover;
+}
+
+.product-detail {
+  margin-bottom: 30px;
+}
+
+.product-detail ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 10px 0 20px 0;
+}
+
+.two-cols {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1;
+  text-align: center;
+  min-width: 200px;
+}
+
+.image-box {
+  background: #ddd;
+  height: 250px;
+  margin-bottom: 10px;
+  background: url("../resources/image/system/products/watch7.jpg")
+		no-repeat center center/cover;
+}
+
+.related-products {
+  margin-bottom: 40px;
+}
+
+.related-images {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.related-item {
+  flex: 1;
+  background: #ddd;
+  height: 150px;
+  min-width: 150px;
+  background: url("../resources/image/system/products/womenwatch3.jpg")
+		no-repeat center center/cover;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+}
