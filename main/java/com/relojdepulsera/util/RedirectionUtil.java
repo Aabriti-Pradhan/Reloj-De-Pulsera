@@ -16,6 +16,7 @@ public class RedirectionUtil {
 	public static final String registerUrl = baseUrl + "register.jsp";
 	public static final String loginUrl = baseUrl + "login.jsp";
 	public static final String indexUrl = baseUrl + "index.jsp";
+	public static final String addUrl = baseUrl + "admin-addproduct.jsp";
 
 	public void setMsgAttribute(HttpServletRequest req, String msgType, String msg) {
 		req.setAttribute(msgType, msg);

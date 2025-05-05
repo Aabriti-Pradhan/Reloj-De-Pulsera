@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/contactUs"})
 
-public class contactUsController extends HttpServlet {
+public class ContactUsController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 

@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/productView"})
 
-public class productViewController extends HttpServlet {
+public class ProductViewController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	

@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/userEditProfile"})
 
-public class userEditProfileController extends HttpServlet {
+public class UserEditProfileController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 

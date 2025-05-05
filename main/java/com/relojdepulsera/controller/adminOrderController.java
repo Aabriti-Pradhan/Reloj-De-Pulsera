@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = { "/admin-order"})
 
-public class adminOrderController extends HttpServlet {
+public class AdminOrderController extends HttpServlet {
 	
 	/**
 	 * 

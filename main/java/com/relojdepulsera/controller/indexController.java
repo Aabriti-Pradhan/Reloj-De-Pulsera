@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/index", "/" })
 
-public class indexController extends HttpServlet {
+public class IndexController extends HttpServlet {
 	
 		private static final long serialVersionUID = 1L;
 

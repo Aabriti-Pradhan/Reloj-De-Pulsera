@@ -1,6 +1,6 @@
 package com.relojdepulsera.service;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,6 +39,8 @@ public class LoginService {
 			System.out.println("Connection Error!");
 			return null;
 		}
+		
+		System.out.println("Attempting login with username: " + userModel.getUserName());
 
 		String query = "SELECT * FROM user WHERE username = ?";
 		try (PreparedStatement stmt = dbConn.prepareStatement(query)) {
@@ -47,9 +49,12 @@ public class LoginService {
 
 			if (result.next()) {
 				String dbPassword = result.getString("password");
-				if (PasswordUtil.decrypt(dbPassword, result.getString("username")).equals(userModel.getPassword())) {
+				String decrypted = PasswordUtil.decrypt(dbPassword, result.getString("username"));
+			    
+			    if (decrypted != null && decrypted.equals(userModel.getPassword())) {
 					// return full user object with role
 					UserModel loggedInUser = new UserModel();
+					loggedInUser.setId(result.getInt("user_id"));
 					loggedInUser.setUserName(result.getString("username"));
 					loggedInUser.setPassword(dbPassword);
 					loggedInUser.setrole(result.getString("role"));

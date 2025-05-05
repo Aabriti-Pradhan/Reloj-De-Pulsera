@@ -76,7 +76,7 @@
 
 .banner {
   height: 100px;
-  background: url("../resources/image/system/ad.jpg")
+  background: url("../resources/image/system/banner.jpg")
 		no-repeat center center/cover;
   margin-bottom: 20px;
 }

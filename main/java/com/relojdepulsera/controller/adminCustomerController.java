@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = { "/admin-customer"})
 
-public class adminCustomerController extends  HttpServlet {
+public class AdminCustomerController extends  HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static final String PAGE = "/WEB-INF/pages/admin-customer.jsp";

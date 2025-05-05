@@ -12,6 +12,8 @@
 	href="${pageContext.request.contextPath}/css/nav.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/footer.css" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+
 </head>
 <body>
 
@@ -28,39 +30,18 @@
 
 	<!-- First Row: 4 Products -->
 	<section class="product-row">
-		<a href="${pageContext.request.contextPath}/productView">
-			<div class="product">
-				<img
-					src="${pageContext.request.contextPath}/resources/image/system/products/kidswatch2.jpg"
-					alt="Watch 1">
-				<p>Watch 1</p>
-				<span>$100</span>
-			</div>
-		</a> <a>
-			<div class="product">
-				<img
-					src="${pageContext.request.contextPath}/resources/image/system/products/kidswatch3.jpg"
-					alt="Watch 2">
-				<p>Watch 2</p>
-				<span>$120</span>
-			</div>
-		</a> <a>
-			<div class="product">
-				<img
-					src="${pageContext.request.contextPath}/resources/image/system/products/watch1.jpg"
-					" alt="Watch 3">
-				<p>Watch 3</p>
-				<span>$140</span>
-			</div>
-		</a> <a>
-			<div class="product">
-				<img
-					src="${pageContext.request.contextPath}/resources/image/system/products/watch2.jpg"
-					alt="Watch 4">
-				<p>Watch 4</p>
-				<span>$160</span>
-			</div>
-		</a>
+		<c:forEach var="product" items="${products}">
+			<a
+				href="${pageContext.request.contextPath}/productView?id=${product.id}">
+				<div class="product">
+					<img
+						src="${pageContext.request.contextPath}/resources/image/system/${product.imageURL}"
+						alt="${product.name}">
+					<p>${product.name}</p>
+					<span>$${product.price}</span>
+				</div>
+			</a>
+		</c:forEach>
 	</section>
 
 	<!-- Second Row: 4 Products -->

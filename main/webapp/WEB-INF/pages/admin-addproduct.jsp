@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ page import="java.util.List"%>
+<%@ page import="com.relojdepulsera.model.CategoryModel"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +22,8 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/message.css" />
 
 </head>
 <body>
@@ -25,51 +33,61 @@
 	<div class="main">
 		<div><jsp:include page="topbar.jsp" /></div>
 		<div class="topside">
-		<% request.setAttribute("activePage", "addproduct"); %>
+			<%
+			request.setAttribute("activePage", "addproduct");
+			%>
 			<div><jsp:include page="sidebar.jsp" /></div>
 			<div class="content">
 				<h2>Add a product</h2>
 
-				<div class="form-area">
-					<div class="left-form">
-						<label>Product Title</label> <input type="text"
-							placeholder="Write title here..." /> <label>Product
-							Description</label>
-						<textarea placeholder="Write a description here..."></textarea>
+				<form action="${pageContext.request.contextPath}/admin-addproduct"
+					method="post" enctype="multipart/form-data">
+					<div class="form-area">
+						<div class="left-form">
+							<label>Product Title</label> <input type="text"
+								placeholder="Write title here..." name="title" /> <label>Product
+								Description</label>
+							<textarea placeholder="Write a description here..."
+								name="describe"></textarea>
 
-						<label>Display Images</label>
-						<div class="image-upload-box">
-							<p>
-								Drag your photo here or <span>Browse from device</span>
-							</p>
-							<div class="upload-icon">📷➕</div>
+							<label name>Display Images</label>
+							<div class="image-upload-box">
+								<input type="file" id="image" name="image">
+							</div>
+
+							<label>Inventory</label>
+							<div class="inventory">
+								<input type="text" placeholder="Quantity" name="stock" /><input
+									type="text" placeholder="Sale Price" name="price" />
+							</div>
 						</div>
 
-						<label>Inventory</label>
-						<div class="inventory">
-							<input type="text" placeholder="Quantity" /> <input type="text"
-								placeholder="Product ID" /> <input type="text"
-								placeholder="Sale Price" />
+						<div class="right-panel">
+							<div class="category-box">
+								<p>Organize</p>
+								<label for="category">Category</label> <select name="category">
+									<option value="" disabled selected>Select Category</option>
+
+									<c:if test="${not empty category}">
+										<c:forEach var="category" items="${category}">
+											<option value="${category.id}">${category.name}</option>
+										</c:forEach>
+									</c:if>
+
+								</select>
+							</div>
+
+							<button type="submit" class="publish-btn">Publish
+								Product</button>
+							<button class="discard-btn">Discard</button>
 						</div>
 					</div>
-
-					<div class="right-panel">
-						<div class="category-box">
-							<p>Organize</p>
-							<label for="category">Category</label> <select id="category">
-								<option>Men's Watch</option>
-								<option>Women's Watch</option>
-								<option>Luxury</option>
-								<option>Sport</option>
-							</select>
-						</div>
-
-						<button class="publish-btn">Publish Product</button>
-						<button class="discard-btn">Discard</button>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
+	</div>
+	<div class="message-box">
+		<jsp:include page="messages.jsp" />
 	</div>
 </body>
 </html>

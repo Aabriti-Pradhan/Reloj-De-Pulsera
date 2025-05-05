@@ -3,6 +3,7 @@ package com.relojdepulsera.controller;
 
 import java.io.IOException;
 
+
 import com.relojdepulsera.model.UserModel;
 import com.relojdepulsera.service.RegisterService;
 import com.relojdepulsera.util.ImageUtil;
@@ -28,7 +29,7 @@ maxFileSize = 1024 * 1024 * 10, // 10MB
 maxRequestSize = 1024 * 1024 * 50) // 50MB
 
 
-public class registerCotroller extends HttpServlet {
+public class RegisterController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private final ValidationUtil validationUtil = new ValidationUtil();

@@ -1,11 +1,12 @@
 package com.relojdepulsera.controller;
 
 
-import java.io.IOException;  
+import java.io.IOException;   
 
 
 import com.relojdepulsera.model.UserModel;
 import com.relojdepulsera.util.ValidationUtil;
+import com.relojdepulsera.util.CookiesUtil;
 import com.relojdepulsera.util.RedirectionUtil;
 import com.relojdepulsera.util.SessionUtil;
 import com.relojdepulsera.service.LoginService;
@@ -22,7 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/login"})
 
-public class loginController extends HttpServlet {
+public class LoginController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private final ValidationUtil validationUtil = new ValidationUtil();
@@ -55,6 +56,8 @@ public class loginController extends HttpServlet {
 				if (loggedInUser != null) {
 					SessionUtil.setAttribute(req, "username", loggedInUser.getUserName());
 					SessionUtil.setAttribute(req, "role", loggedInUser.getrole());
+					CookiesUtil.addCookie(resp, "userId", String.valueOf(loggedInUser.getId()), 5 * 30); 
+
 				} else {
 					handleLoginFailure(req, resp, false);
 				}

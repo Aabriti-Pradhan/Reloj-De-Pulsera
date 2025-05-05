@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ page import="java.util.List" %>
-<%@ page import="com.relojdepulsera.model.UserModel" %>
+<%@ page import="java.util.List"%>
+<%@ page import="com.relojdepulsera.model.UserModel"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
 
 
 <!DOCTYPE html>
@@ -15,7 +19,7 @@
 	href="${pageContext.request.contextPath}/css/register.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/nav.css" />
-	<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/message.css" />
 </head>
 <body>
@@ -26,73 +30,70 @@
 		<div class="register-box">
 			<div class="avatar">&#128100;</div>
 
-			<form action="${pageContext.request.contextPath}/register" method="post" enctype="multipart/form-data">
+			<form action="${pageContext.request.contextPath}/register"
+				method="post" enctype="multipart/form-data">
 				<div class="form-row">
 					<div class="input-group">
-						<input type="text" placeholder="First Name" name="firstname" /> 
-						<span class="icon">&#9998;</span>
+						<input type="text" placeholder="First Name" name="firstname" /> <span
+							class="icon">&#9998;</span>
 					</div>
 					<div class="input-group">
-						<input type="password" placeholder="Password" name="password"/>
+						<input type="password" placeholder="Password" name="password" />
 						<span class="icon">&#128274;</span>
 					</div>
 				</div>
 
 				<div class="form-row">
 					<div class="input-group">
-						<input type="text" placeholder="Last Name" name="lastname"/>
-						<span class="icon">&#9998;</span>
+						<input type="text" placeholder="Last Name" name="lastname" /> <span
+							class="icon">&#9998;</span>
 					</div>
 					<div class="input-group">
-						<input type="password" placeholder="Retype Password" name="retype"/>
+						<input type="password" placeholder="Retype Password" name="retype" />
 						<span class="icon">&#128274;</span>
 					</div>
 				</div>
 
 				<div class="form-row">
 					<div class="input-group">
-						<input type="text" placeholder="Username" name="username"/>
-						<span class="icon">&#128100;</span>
+						<input type="text" placeholder="Username" name="username" /> <span
+							class="icon">&#128100;</span>
 					</div>
 					<div class="input-group">
-						<input type="email" placeholder="Email" name="email"/>
-						<span class="icon">&#9993;</span>
+						<input type="email" placeholder="Email" name="email" /> <span
+							class="icon">&#9993;</span>
 					</div>
 				</div>
 
 				<div class="form-row">
 
 					<div class="input-group">
-						<input type="tel" placeholder="Phone Number" name="phone" />
-						<span class="icon">&#128222;</span>
+						<input type="tel" placeholder="Phone Number" name="phone" /> <span
+							class="icon">&#128222;</span>
 					</div>
 					<div class="input-group">
 						<select name="role">
 							<option value="" disabled selected>Select Role</option>
-							<%
-							List<UserModel> roles = (List<UserModel>) request.getAttribute("roles");
-							if (roles != null) {
-								for (UserModel user : roles) {
-							%>
-							<option value="<%=user.getrole()%>"><%=user.getrole()%></option>
-							<%
-							}
-							}
-							%>
-						</select> 
-						<span class="icon">&#128101;</span>
+							
+							 <c:if test="${not empty roles}">
+								<c:forEach var="user" items="${roles}">
+									<option value="${user.role}">${user.role}</option>
+								</c:forEach>
+							</c:if> 
+
+						</select> <span class="icon">&#128101;</span>
 					</div>
 				</div>
-				
+
 				<div class="form-row">
 
 					<div class="input-group">
-						<input type="text" placeholder="Address" name="address" />
-						<span class="icon">&#128222;</span>
+						<input type="text" placeholder="Address" name="address" /> <span
+							class="icon">&#128222;</span>
 					</div>
 					<div class="input-group">
-						<input type="file" id="image" name="image">
-						<span class="icon">&#128101;</span>
+						<input type="file" id="image" name="image"> <span
+							class="icon">&#128101;</span>
 					</div>
 				</div>
 

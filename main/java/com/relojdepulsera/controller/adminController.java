@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = { "/admin-dashboard", "/dashboard", "/admin" })
 
-public class adminController extends HttpServlet {
+public class AdminController extends HttpServlet {
 	
 	/**
 	 * 
