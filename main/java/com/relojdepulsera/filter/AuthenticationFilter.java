@@ -29,6 +29,7 @@ public class AuthenticationFilter implements Filter {
 	private static final String USER_PROFILE = "/userProfile";
 	private static final String CONTACT = "/contactUs";
 	private static final String USER_EDIT_PROFILE = "/userEditProfile";
+	private static final String BUY_NOW = "/buyNow";
 	
 
 	private static final String LOGOUT = "/logout";
@@ -75,7 +76,8 @@ public class AuthenticationFilter implements Filter {
 		} else if ("user".equalsIgnoreCase(userRole)) {
 			// User is logged in
 			if (uri.endsWith(HOME) || uri.endsWith(EXPLORE) || uri.endsWith(PRODUCT_VIEW) || uri.endsWith(PURCHASE_HISTORY)
-					|| uri.endsWith(ABOUT) || uri.endsWith(USER_PROFILE) || uri.endsWith(CONTACT) || uri.endsWith(USER_EDIT_PROFILE) || uri.endsWith(LOGOUT)) {
+					|| uri.endsWith(ABOUT) || uri.endsWith(USER_PROFILE) || uri.endsWith(CONTACT) || uri.endsWith(USER_EDIT_PROFILE) 
+					|| uri.endsWith(LOGOUT) || uri.endsWith(BUY_NOW)) {
 				chain.doFilter(request, response);
 			} else {
 				res.sendRedirect(req.getContextPath() + HOME);

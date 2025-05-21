@@ -28,6 +28,11 @@
         showSlides(slideIndex);
         startTimer();
         
+        setTimeout(() => {
+            showSlides(slideIndex);
+            startTimer();
+        }, 100);
+        
         function startTimer() {
             slideInterval = setInterval(() => {
                 changeSlide(1);
@@ -173,7 +178,7 @@
 		<div class="image-toggle">
 			<!-- Slides -->
 			<div class="slide active"
-				style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 1.jpeg');"></div>
+				style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 1.png');"></div>
 			<div class="slide"
 				style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 2.png');"></div>
 			<div class="slide"

@@ -6,10 +6,9 @@
 	display: flex;
 	flex-direction: column;
 	padding-top: 20px;
-  padding: 20px;
-  text-align: center;
-	
-	
+	padding: 20px;
+	text-align: center;
+	margin-top: 80px;
 }
 
 .sidebar a {
@@ -24,6 +23,7 @@
 	color: #333;
 	transition: background 0.2s ease, color 0.2s ease;
 	border-left: 4px solid transparent;
+	margin-left: 0px;
 }
 
 .sidebar a i {
@@ -53,30 +53,51 @@
 }
 
 .avatar {
-  width: 100%;
-  height: 320px;
-  background: #ccc;
-  margin-bottom: 10px;
-  background: url("../resources/image/system/obama.png")
-		no-repeat center center/cover;
+	width: 100%;
+	height: 100%;
+	background: #ccc;
+	margin-bottom: 10px;
+	background: url("../resources/image/system/obama.png") no-repeat center
+		center/cover;
+	border-radius: 50px;
 }
 
 .userbar {
-  width: 20%;
-  background-color: #e6dedc;
-  padding: 20px;
-  text-align: center;
+	width: 20%;
+	background-color: #e6dedc;
+	padding: 20px;
+	text-align: center;
 }
 
 .email {
-  font-size: 12px;
-  color: #000;
-  margin-bottom: 10px;
+	font-size: 12px;
+	color: #000;
+	margin-bottom: 20px;
 }
 
 .banner {
-  height: 100px;
-  background: url("../resources/image/system/banner.jpg")
-		no-repeat center center/cover;
-  margin-bottom: 20px;
+	height: 100px;
+	background: url("../resources/image/system/banner.jpg") no-repeat center
+		center/cover;
+	margin-bottom: 20px;
+}
+
+.profile-img {
+	width: 150px; /* Increased size */
+	height: 150px;
+	margin: 0 auto 20px; /* Centered horizontally */
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%; /* Make it a perfect circle */
+	object-fit: cover;   /* Ensure it fills the container properly */
+}
+
+.box {
+	border-left: 2px solid black;
+	padding: 8px;
+	border-radius: 10px;
+	height: 200px;
 }

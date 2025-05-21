@@ -10,6 +10,7 @@ public class WatchModel {
 	private int stock;
 	private String imageURL;
 	
+	
 	public WatchModel() {
 		
 	}

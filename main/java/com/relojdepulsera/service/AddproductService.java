@@ -70,8 +70,15 @@ public class AddproductService {
 			insertStmt.setString(4, watchModel.getDescription());
 			insertStmt.setLong(5, watchModel.getStock());
 			insertStmt.setString(6, watchModel.getImageURL());
+			
+			int rows = insertStmt.executeUpdate();
+			System.out.println("Insert executed, rows affected: " + rows);
 
-			return insertStmt.executeUpdate() > 0;
+	        if (!dbConn.getAutoCommit()) {
+	            dbConn.commit(); // commit if autoCommit is false
+	        }
+
+	        return rows > 0;
 		} catch (SQLException e) {
 			System.err.println("Error during watch insertion: " + e.getMessage());
 			e.printStackTrace();

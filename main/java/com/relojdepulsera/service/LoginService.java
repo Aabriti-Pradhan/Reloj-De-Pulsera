@@ -58,7 +58,14 @@ public class LoginService {
 					loggedInUser.setUserName(result.getString("username"));
 					loggedInUser.setPassword(dbPassword);
 					loggedInUser.setrole(result.getString("role"));
-					// you can set other fields if needed
+					
+					
+					loggedInUser.setFirstName(result.getString("first_name"));
+	                loggedInUser.setLastName(result.getString("last_name"));
+	                loggedInUser.setEmail(result.getString("email"));
+	                loggedInUser.setPhone(result.getString("phone"));
+	                loggedInUser.setaddress(result.getString("address"));
+	                loggedInUser.setImageURL(result.getString("image_path"));
 					return loggedInUser;
 				}
 			}

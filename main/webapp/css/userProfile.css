@@ -62,18 +62,33 @@ body {
   border: 1px solid black;
   padding: 15px;
   margin-bottom: 20px;
+  margin-top: 90px;
   border-radius: 8px;
+  box-shadow: 10px 10px;
 }
 
 .bio-section h4 {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   font-weight: bold;
+  font-size: 40px;
 }
 
 .bio-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+	padding-left: 20px;
+}
+
+.bio-grid div {
+  margin: 20px 0;
+  display: flex;
+  /* Align label and value horizontally */
+  align-items: center;
+}
+
+.bio-grid strong {
+  /* Fixed width for labels so values align vertically */
+  width: 150px;  /* Adjust this width as needed */
+  margin-right: 10px;
+  text-align: left;
 }
 
 .orders-note {
@@ -88,6 +103,69 @@ body {
 .orders-note p {
 	padding-bottom: 5px;
 }
+
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-field label {
+    width: 120px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    width: 400px;
+    border: none;
+    
+}
+
+.form-field input {
+	border-right: 1px solid black;
+}
+
+.save-btn {
+  margin-top: 20px;
+  width: 150px;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sepe {
+	display: flex;
+}
+
+.product-reviews {
+    background-color: GhostWhite;
+    padding: 20px;
+    width: 500px;
+    border-radius: 8px;
+    margin-top: 20px;
+  margin-left: 100px;
+}
+.review {
+    margin-bottom: 10px;
+}
+
+.butto {
+	width: 400px;;
+	margin-left: 100px;
+}
+
 
 .footer {
   background: #fff;

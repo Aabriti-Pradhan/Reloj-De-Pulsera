@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,48 +43,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>#123</td>
-								<td>18 Apr 2025</td>
-								<td>Aastha Paudel</td>
-								<td>Delivered</td>
-								<td>Rs. 1,20,000</td>
-							</tr>
-							<tr>
-								<td>#123</td>
-								<td>18 Apr 2025</td>
-								<td>Aabriti Pradhan</td>
-								<td>Processed</td>
-								<td>Rs. 1,10,000</td>
-							</tr>
-							<tr>
-								<td>#123</td>
-								<td>18 Apr 2025</td>
-								<td>Simona Thapa</td>
-								<td>Processed</td>
-								<td>Rs. 90,000</td>
-							</tr>
-							<tr>
-								<td>#123</td>
-								<td>18 Apr 2025</td>
-								<td>Mandira Budhathoki</td>
-								<td>Delivered</td>
-								<td>Rs. 1,25,000</td>
-							</tr>
-							<tr>
-								<td>#123</td>
-								<td>18 Apr 2025</td>
-								<td>Manusha Karki</td>
-								<td>Processed</td>
-								<td>Rs. 70,000</td>
-							</tr>
-							<tr>
-								<td>#123</td>
-								<td>18 Apr 2025</td>
-								<td>Aastha Paudel</td>
-								<td>Delivered</td>
-								<td>Rs. 90,000</td>
-							</tr>
+							<c:forEach var="order" items="${orders}">
+							    <tr>
+									<td>#${order.orderId}</td>
+									<td><fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd"/></td>
+									<td>${order.customerName}</td>
+									<td>
+									    <span class="status-${order.orderStatus.toLowerCase()}">${order.orderStatus}</span>
+									</td>
+									<td>Rs. ${order.totalAmount}</td>
+							    </tr>
+							</c:forEach>
 						</tbody>
 					</table>
 

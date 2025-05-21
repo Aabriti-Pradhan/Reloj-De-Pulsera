@@ -5,8 +5,6 @@ body {
 	font-family: Arial, sans-serif;
 }
 
-
-
 header div {
 	display: flex;
 	align-items: center;
@@ -15,8 +13,7 @@ header div {
 }
 
 header {
-	background: url("../resources/image/system/explore header.png")
-		no-repeat center center/cover;
+	position: relative;
 	height: 350px;
 	width: 95.5%;
 	display: flex;
@@ -25,13 +22,30 @@ header {
 	padding: 2rem;
 	color: white;
 	text-align: right;
+	overflow: hidden;
 }
 
+header::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../resources/image/system/explore header.png") no-repeat center center/cover;
+	filter: brightness(70%);
+	z-index: 0;
+	height: 400px;
+	width:100%;
+}
 
 header h1 {
 	font-size: 4rem;
 	margin: 0;
+	position: relative;
+	z-index: 1; /* Ensure h1 is above the filtered background */
 }
+
 
 .banner img {
 	width: 100%;
@@ -43,26 +57,79 @@ header h1 {
 	justify-content: space-between;
 	flex-wrap: wrap;
 	padding: 30px 60px;
-	gap: 50px;
-}
-
-.product-row a:hover {
-	cursor: pointer;
+	margin-top: 30px;
+	gap: 40px;
 }
 
 .product-row.no-text .product p, .product-row.no-text .product span {
 	display: none;
 }
 
+.card:hover {
+	
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 6px 8px black;
+	border-radius: 10px;
+	
+}
+
+button:hover {
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 6px 8px slategray;
+	border-radius: 10px;
+}
+
+.card {
+	background-color: GhostWhite;
+	border-radius: 10px;
+	height: 380px;
+	border: 1px solid black;
+}
+
 .product {
 	text-align: center;
 	width: 200px;
+	padding: 20px;
 }
 
 .product img {
 	width: 100%;
-	height: auto;
+	height: 200px;
 	border-radius: 10px;
+}
+
+.product-row a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+
+.product-card .product {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 15px;
+	transition: transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product p {
+	font-weight: bold;
+	color: black;
+}
+
+button {
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: -20px; background : black;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 10px;
+	font-weight: bold;
+	background: black;
 }
 
 .special-row {

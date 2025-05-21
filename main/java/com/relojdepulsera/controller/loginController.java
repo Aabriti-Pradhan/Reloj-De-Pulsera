@@ -56,7 +56,12 @@ public class LoginController extends HttpServlet {
 				if (loggedInUser != null) {
 					SessionUtil.setAttribute(req, "username", loggedInUser.getUserName());
 					SessionUtil.setAttribute(req, "role", loggedInUser.getrole());
+					
+					SessionUtil.setAttribute(req, "user", loggedInUser); // ✅ Save full user object
+					
 					CookiesUtil.addCookie(resp, "userId", String.valueOf(loggedInUser.getId()), 5 * 30); 
+					
+					System.out.println("Logged in user ID: " + loggedInUser.getId());
 
 				} else {
 					handleLoginFailure(req, resp, false);
