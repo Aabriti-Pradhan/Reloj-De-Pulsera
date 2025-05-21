@@ -14,6 +14,9 @@
 	href="${pageContext.request.contextPath}/css/sidebar.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 </head>
 <body>
 
@@ -23,7 +26,9 @@
 	<div class="main">
 		<div><jsp:include page="topbar.jsp" /></div>
 		<div class="topside">
-		<% request.setAttribute("activePage", "product"); %>
+			<%
+			request.setAttribute("activePage", "product");
+			%>
 			<div><jsp:include page="sidebar.jsp" /></div>
 
 
@@ -32,7 +37,8 @@
 				<div class="header">
 					<h2>Product List</h2>
 					<div class="actions">
-						<button class="add-product">Add product</button>
+						<a href="${pageContext.request.contextPath}/admin-addproduct" class="add-product">Add product</a>
+
 						<input type="text" placeholder="Search product" />
 					</div>
 				</div>
@@ -48,25 +54,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<!-- Repeat this row as needed -->
-						<tr>
-							<td><input type="checkbox" /></td>
-							<td><img src="placeholder.jpg" class="product-img" /> watch
-								name</td>
-							<td>Rs. xxx</td>
-							<td>xxx</td>
-							<td>⋮</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" /></td>
-							<td><img src="placeholder.jpg" class="product-img" /> watch
-								name</td>
-							<td>Rs. xxx</td>
-							<td>xxx</td>
-							<td>⋮</td>
-						</tr>
-						<!-- ... -->
+						<c:forEach var="watch" items="${watches}">
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td><img
+									src="${pageContext.request.contextPath}/resources/image/watch/${watch.imageURL}"
+									class="product-img" /> ${watch.name}</td>
+								<td>Rs. ${watch.price}</td>
+								<td>${watch.stock}</td>
+								<td>⋮</td>
+							</tr>
+						</c:forEach>
 					</tbody>
+
 				</table>
 
 				<div class="pagination">

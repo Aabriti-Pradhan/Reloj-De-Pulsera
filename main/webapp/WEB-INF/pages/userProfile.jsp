@@ -34,7 +34,7 @@
 				<h4>Bio graph</h4>
 
 				<form class="edit-form" method="POST"
-					action="${pageContext.request.contextPath}/user-profile">
+					action="${pageContext.request.contextPath}/userProfile">
 					<div class="sepe">
 						<div class="bio-grid">
 							<div class="form-field">
@@ -78,8 +78,8 @@
 								</div>
 							</div>
 							<div class = "butto">
-							<button class="save-btn" type="submit">Save Changes</button>
-							<button class="save-btn" type="submit">Save Changes</button>
+							<button class="save-btn" type="submit" value = "save" name="action">Save Changes</button>
+							<button class="save-btn" type="submit" value = "delete" name="action">Delete Account</button>
 							</div>
 						</div>
 					</div>

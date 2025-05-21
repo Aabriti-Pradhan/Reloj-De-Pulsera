@@ -14,6 +14,9 @@
 	href="${pageContext.request.contextPath}/css/sidebar.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 </head>
 <body>
 
@@ -23,7 +26,9 @@
 	<div class="main">
 		<div><jsp:include page="topbar.jsp" /></div>
 		<div class="topside">
-		<% request.setAttribute("activePage", "customer"); %>
+			<%
+			request.setAttribute("activePage", "customer");
+			%>
 			<div><jsp:include page="sidebar.jsp" /></div>
 
 
@@ -32,7 +37,6 @@
 				<div class="header">
 					<h2>Customer List</h2>
 					<div class="actions">
-						<button class="add-product">Add customer</button>
 						<input type="text" placeholder="Search product" />
 					</div>
 				</div>
@@ -45,29 +49,23 @@
 							<th>Email</th>
 							<th>Phone Number</th>
 							<th>Address</th>
-							
+
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<!-- Repeat this row as needed -->
-						<tr>
-							<td><input type="checkbox" /></td>
-							<td><img src="placeholder.jpg" class="product-img" /> Aastha Paudel</td>
-							<td>aasthapaudel123@gmail.com</td>
-							<td>98123456789</td>
-							<td>Kathmandu</td>							
-							<td>⋮</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" /></td>
-							<td><img src="placeholder.jpg" class="product-img" /> Aabriti Pradhan</td>
-							<td>aabritipradhan123@gmail.com</td>
-							<td>98123456788</td>
-							<td>Kathmandu</td>
-							<td>⋮</td>
-						</tr>
-						<!-- ... -->
+						<c:forEach var="user" items="${customer}">
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td><img
+									src="${pageContext.request.contextPath}/resources/image/user/${user.imageURL}"
+									class="product-img" /> ${user.firstName} ${user.lastName}</td>
+								<td>${user.email}</td>
+								<td>${user.phone}</td>
+								<td>${user.address}</td>
+								<td>⋮</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 

@@ -6,23 +6,33 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Purchase History</title>
+
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/purchaseHistory.css" />
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/footer.css" />
+	href="${pageContext.request.contextPath}/css/userProfile.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/userProfileSidebar.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/footer.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/nav.css" />
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 </head>
 <body>
-
 	<div class="container">
 		<%
 		request.setAttribute("activePage", "purchaseHistory");
 		%>
+		<jsp:include page="nav.jsp" />
 		<div><jsp:include page="userProfileSidebar.jsp" /></div>
+
+		<!-- Main Content -->
 		<main class="purchase-history-container">
 			<h2 class="section-title">Purchase History</h2>
-			<table>
+			<table class="orders-table">
 				<thead>
 					<tr>
 						<th>Order No.</th>
@@ -33,69 +43,23 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1201</td>
-						<td>July 29, 2024</td>
-						<td>4506</td>
-						<td>Order Received</td>
-						<td>$300</td>
-					</tr>
-					<tr>
-						<td>1202</td>
-						<td>August 01, 2024</td>
-						<td>4507</td>
-						<td>Order Received</td>
-						<td>$350</td>
-					</tr>
-					<tr>
-						<td>1203</td>
-						<td>August 05, 2024</td>
-						<td>4508</td>
-						<td>Order Pending</td>
-						<td>$200</td>
-					</tr>
-					<tr>
-						<td>1204</td>
-						<td>August 06, 2024</td>
-						<td>4509</td>
-						<td>Order Pending</td>
-						<td>$250</td>
-					</tr>
-					<tr>
-						<td>1201</td>
-						<td>July 29, 2024</td>
-						<td>4506</td>
-						<td>Order Received</td>
-						<td>$150</td>
-					</tr>
-					<tr>
-						<td>1202</td>
-						<td>August 01, 2024</td>
-						<td>4507</td>
-						<td>Order Received</td>
-						<td>$200</td>
-					</tr>
-					<tr>
-						<td>1203</td>
-						<td>August 05, 2024</td>
-						<td>4508</td>
-						<td>Order Pending</td>
-						<td>$150</td>
-					</tr>
-					<tr>
-						<td>1204</td>
-						<td>August 06, 2024</td>
-						<td>4509</td>
-						<td>Order Pending</td>
-						<td>$200</td>
-					</tr>
+					<c:forEach var="order" items="${orders}">
+						<tr>
+							<td>#${order.id}</td>
+							<td><fmt:formatDate value="${order.date}"
+									pattern="yyyy-MM-dd" /></td>
+							<td>${order.customerName}</td>
+							<!-- This is watch name -->
+							<td><span class="status-${order.status.toLowerCase()}">${order.status}</span></td>
+							<td>Rs. ${order.total_amt}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
+
 			</table>
 		</main>
+	</div>
 
-		
-		</div>
-		<div class="foot"><jsp:include page="footer.jsp" /></div>
-		
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

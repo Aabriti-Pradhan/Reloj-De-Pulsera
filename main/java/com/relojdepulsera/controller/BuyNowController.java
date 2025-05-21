@@ -82,7 +82,7 @@ public class BuyNowController extends HttpServlet {
 			OrderModel order = new OrderModel();
 			order.setTotal_amt(price1 * quantity);
 			order.setStatus(getRandomStatus());
-			order.setDate((int) (System.currentTimeMillis() / 1000)); // or store as SQL Date
+			order.setDate(new java.util.Date());
 			order.setUser_id(userId);
 
 			int orderId = orderService.insertOrder(order);

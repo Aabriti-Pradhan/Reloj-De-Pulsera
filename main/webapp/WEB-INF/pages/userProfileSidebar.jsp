@@ -23,10 +23,7 @@
 		<a href="${pageContext.request.contextPath}/userProfile"
 			class="${activePage == 'userProfile' ? 'active' : ''}"> <i
 			class="fas fa-home"></i> Profile
-		</a> <a href="${pageContext.request.contextPath}/userEditProfile"
-			class="${activePage == 'editProfile' ? 'active' : ''}"> <i
-			class="fas fa-receipt"></i> Edit Profile
-		</a> <a href="${pageContext.request.contextPath}/purchaseHistory"
+		</a><a href="${pageContext.request.contextPath}/purchaseHistory"
 			class="${activePage == 'purchaseHistory' ? 'active' : ''}"> <i
 			class="fas fa-receipt"></i> Purchase History
 		</a>

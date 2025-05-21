@@ -25,10 +25,10 @@ public class OrderService {
 	}
 	
 	public int insertOrder(OrderModel order) throws Exception {
-		String sql = "INSERT INTO orders (total_amount, order_date, order_status, user_ID) VALUES (?, FROM_UNIXTIME(?), ?, ?)";
+		String sql = "INSERT INTO orders (total_amount, order_date, order_status, user_ID) VALUES (?, ?, ?, ?)";
 		PreparedStatement stmt = dbConn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 		stmt.setInt(1, order.getTotal_amt());
-		stmt.setInt(2, order.getDate());
+		stmt.setDate(2, new java.sql.Date(order.getDate().getTime()));
 		stmt.setString(3, order.getStatus());
 		stmt.setInt(4, order.getUser_id());
 		stmt.executeUpdate();

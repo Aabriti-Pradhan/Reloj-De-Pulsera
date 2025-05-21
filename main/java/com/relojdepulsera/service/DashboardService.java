@@ -1,156 +1,114 @@
 package com.relojdepulsera.service;
 
-import com.relojdepulsera.model.CustomerModel;
-import com.relojdepulsera.model.UserModel;
-import com.relojdepulsera.config.DBconfig;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
+import com.relojdepulsera.model.UserModel;
+import com.relojdepulsera.model.OrderModel;
+import com.relojdepulsera.config.DBconfig;
 
 public class DashboardService {
-    
-    public int getTotalOrders() throws SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
+
+	private Connection dbConn;
+
+	public DashboardService() {
+		try {
+			this.dbConn = DBconfig.getDbConnection();
+		} catch (SQLException | ClassNotFoundException ex) {
+			System.err.println("Database connection error: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
+
+    public int getTotalOrders() {
         try {
-            conn = DBconfig.getDbConnection();
-            stmt = conn.prepareStatement("SELECT COUNT(*) FROM order");
-            rs = stmt.executeQuery();
-            return rs.next() ? rs.getInt(1) : 0;
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Database driver not found", e);
-        } finally {
-            closeResources(conn, stmt, rs);
-        }
-    }
-    
-    public int getTotalProducts() throws SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            conn = DBconfig.getDbConnection();
-            stmt = conn.prepareStatement("SELECT COUNT(*) FROM watch");
-            rs = stmt.executeQuery();
-            return rs.next() ? rs.getInt(1) : 0;
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Database driver not found", e);
-        } finally {
-            closeResources(conn, stmt, rs);
-        }
-    }
-    
-    public int getTotalCustomers() throws SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            conn = DBconfig.getDbConnection();
-            stmt = conn.prepareStatement("SELECT COUNT(*) FROM user WHERE role='user'");
-            rs = stmt.executeQuery();
-            return rs.next() ? rs.getInt(1) : 0;
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Database driver not found", e);
-        } finally {
-            closeResources(conn, stmt, rs);
-        }
-    }
-    
-    public double getTotalRevenue() throws SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            conn = DBconfig.getDbConnection();
-            stmt = conn.prepareStatement("SELECT SUM(total_amount) FROM order");
-            rs = stmt.executeQuery();
-            return rs.next() ? rs.getDouble(1) : 0.0;
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Database driver not found", e);
-        } finally {
-            closeResources(conn, stmt, rs);
-        }
-    }
-    
-    public int getPendingOrders() throws SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            conn = DBconfig.getDbConnection();
-            stmt = conn.prepareStatement("SELECT COUNT(*) FROM order WHERE order_status='Pending'");
-            rs = stmt.executeQuery();
-            return rs.next() ? rs.getInt(1) : 0;
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Database driver not found", e);
-        } finally {
-            closeResources(conn, stmt, rs);
-        }
-    }
-    
-    public int getCompletedOrders() throws SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            conn = DBconfig.getDbConnection();
-            stmt = conn.prepareStatement("SELECT COUNT(*) FROM order WHERE order_status='Completed'");
-            rs = stmt.executeQuery();
-            return rs.next() ? rs.getInt(1) : 0;
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Database driver not found", e);
-        } finally {
-            closeResources(conn, stmt, rs);
-        }
-    }
-    
-    
-    
-    public List<CustomerModel> getLatestCustomers() throws SQLException {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        List<CustomerModel> customers = new ArrayList<>();
-        
-        try {
-            conn = DBconfig.getDbConnection();
-            // Query to get top customers by order count
-            String query = "SELECT u.first_name, u.last_name, " +
-                          "COUNT(o.user_ID) as order_count FROM user u " +
-                          "LEFT JOIN orders o ON u.user_ID = o.user_ID " +
-                          "WHERE u.role='user' " +
-                          "GROUP BY u.user_ID ORDER BY order_count DESC LIMIT 3";
-            
-            stmt = conn.prepareStatement(query);
-            rs = stmt.executeQuery();
-            
-            while (rs.next()) {
-                String name = rs.getString("first_name") + " " + rs.getString("last_name");
-                int orderCount = rs.getInt("order_count");
-                customers.add(new CustomerModel(name, orderCount));
-            }
-            return customers;
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("Database driver not found", e);
-        } finally {
-            closeResources(conn, stmt, rs);
-        }
-    }
-    
-    private void closeResources(Connection conn, Statement stmt, ResultSet rs) {
-        try {
-            if (rs != null) rs.close();
-            if (stmt != null) stmt.close();
-            if (conn != null) conn.close();
-        } catch (SQLException e) {
+            PreparedStatement ps = dbConn.prepareStatement("SELECT COUNT(*) FROM orders");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt(1);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        return 0;
+    }
+
+    public int getTotalProducts() {
+        try {
+            PreparedStatement ps = dbConn.prepareStatement("SELECT COUNT(*) FROM watch");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int getTotalCustomers() {
+        try {
+            PreparedStatement ps = dbConn.prepareStatement("SELECT COUNT(*) FROM user WHERE role = 'user'");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public double getTotalRevenue() {
+        try {
+            PreparedStatement ps = dbConn.prepareStatement("SELECT SUM(total_amount) FROM orders");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getDouble(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
+
+    public int getPendingOrders() {
+        try {
+            PreparedStatement ps = dbConn.prepareStatement("SELECT COUNT(*) FROM orders WHERE order_status = 'Pending'");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int getCompletedOrders() {
+        try {
+            PreparedStatement ps = dbConn.prepareStatement("SELECT COUNT(*) FROM orders WHERE order_status = 'Completed'");
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    // 🔥 TOP 3 CUSTOMERS (No CustomerModel)
+    public List<Map<String, Object>> getTopCustomers() {
+        List<Map<String, Object>> customers = new ArrayList<>();
+        try {
+            String query = "SELECT u.user_ID, u.first_name, u.last_name, COUNT(o.order_ID) as order_count " +
+                           "FROM user u JOIN orders o ON u.user_ID = o.user_ID " +
+                           "WHERE u.role = 'user' " +
+                           "GROUP BY u.user_ID, u.first_name, u.last_name " +
+                           "ORDER BY order_count DESC LIMIT 3";
+            PreparedStatement ps = dbConn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Map<String, Object> customer = new HashMap<>();
+                customer.put("id", rs.getInt("user_ID"));
+                customer.put("name", rs.getString("first_name") + " " + rs.getString("last_name"));
+                customer.put("orderCount", rs.getInt("order_count"));
+                customers.add(customer);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return customers;
     }
 }

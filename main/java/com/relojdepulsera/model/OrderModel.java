@@ -4,9 +4,10 @@ public class OrderModel {
 	
 	private int id;
 	private int total_amt;
-	private int date;
+	private java.util.Date date;
 	private String status;
 	private int user_id;
+	private String customerName;
 	
 	
 	public OrderModel() {
@@ -29,11 +30,11 @@ public class OrderModel {
 		this.total_amt = Total_amt;
 	}
 	
-	public int getDate() {
+	public java.util.Date getDate() {
 		return date;
 	}
 
-	public void setDate(int Date) {
+	public void setDate(java.util.Date Date) {
 		this.date = Date;
 	}
 	
@@ -51,6 +52,14 @@ public class OrderModel {
 
 	public void setUser_id(int User_id) {
 		this.user_id = User_id;
+	}
+	
+	public String getCustomerName() {
+	    return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+	    this.customerName = customerName;
 	}
 	
 	

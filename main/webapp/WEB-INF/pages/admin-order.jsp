@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +16,9 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 </head>
 <body>
 
@@ -23,7 +26,9 @@
 	<div class="main">
 		<div><jsp:include page="topbar.jsp" /></div>
 		<div class="topside">
-		<% request.setAttribute("activePage", "order"); %>
+			<%
+			request.setAttribute("activePage", "order");
+			%>
 			<div><jsp:include page="sidebar.jsp" /></div>
 			<div class="container">
 				<section class="content">
@@ -33,6 +38,7 @@
 					</div>
 
 					<table class="orders-table">
+
 						<thead>
 							<tr>
 								<th>ORDER</th>
@@ -44,15 +50,16 @@
 						</thead>
 						<tbody>
 							<c:forEach var="order" items="${orders}">
-							    <tr>
-									<td>#${order.orderId}</td>
-									<td><fmt:formatDate value="${order.orderDate}" pattern="yyyy-MM-dd"/></td>
+								<tr>
+									<td>#${order.id}</td>
+									<td><fmt:formatDate value="${order.date}"
+											pattern="yyyy-MM-dd" /></td>
 									<td>${order.customerName}</td>
-									<td>
-									    <span class="status-${order.orderStatus.toLowerCase()}">${order.orderStatus}</span>
+									<td><span class="status-${order.status.toLowerCase()}">${order.status}</span>
 									</td>
-									<td>Rs. ${order.totalAmount}</td>
-							    </tr>
+									<td>Rs. ${order.total_amt}</td>
+
+								</tr>
 							</c:forEach>
 						</tbody>
 					</table>

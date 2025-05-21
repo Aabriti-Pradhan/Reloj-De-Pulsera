@@ -27,20 +27,23 @@ public class AdminController extends HttpServlet {
         }
 
         try {
-            // Set all dashboard metrics as request attributes
-            req.setAttribute("totalOrders", dashboardService.getTotalOrders());
-            req.setAttribute("totalProducts", dashboardService.getTotalProducts());
-            req.setAttribute("totalCustomers", dashboardService.getTotalCustomers());
+
+        	req.setAttribute("totalOrders", dashboardService.getTotalOrders());
+        	req.setAttribute("totalProducts", dashboardService.getTotalProducts());
+        	req.setAttribute("totalCustomers", dashboardService.getTotalCustomers());
+
+        	double totalRevenue = dashboardService.getTotalRevenue();
+        	req.setAttribute("totalRevenue", totalRevenue);
+        	req.setAttribute("netRevenue", totalRevenue * 0.7); // 70% profit
+
+        	req.setAttribute("pendingOrders", dashboardService.getPendingOrders());
+        	req.setAttribute("completedOrders", dashboardService.getCompletedOrders());
+
+        	// Top customers
+        	req.setAttribute("topCustomers", dashboardService.getTopCustomers());
+
             
-            double revenue = dashboardService.getTotalRevenue();
-            req.setAttribute("revenue", revenue);
-            req.setAttribute("net", revenue * 0.7); // Assuming 30% costs
-            
-            req.setAttribute("pendingOrders", dashboardService.getPendingOrders());
-            req.setAttribute("completedOrders", dashboardService.getCompletedOrders());
-            req.setAttribute("latestCustomers", dashboardService.getLatestCustomers());
-            
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             // Handle error appropriately
         }

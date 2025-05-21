@@ -14,13 +14,7 @@
 	href="${pageContext.request.contextPath}/css/footer.css" />
 </head>
 <body>
-	<header>
-		<jsp:include page="nav.jsp" />
-	</header>
-	<div class="header">
-			<h1>Reloj De Pulsera</h1>
-			<p>Where Time Meets Style – Crafted Elegance for Every Wrist</p>
-		</div>
+	<jsp:include page="nav.jsp" />
 
 	<div class="about-box">
 		<div class="about-text">
@@ -33,8 +27,8 @@
 		<!-- Directly Inserting Image -->
 		<div class="about-image">
 			<img
-				src="${pageContext.request.contextPath}/resources/image/system/mandy.jpg"
-				alt="About Us Image" width="400" height="280" />
+				src="${pageContext.request.contextPath}/resources/image/about/head.png"
+				alt="About Us Image" class = "image" />
 		</div>
 	</div>
 
@@ -45,8 +39,8 @@
 				<!-- Directly Inserting Image -->
 				<div class="team-image">
 					<img
-						src="${pageContext.request.contextPath}/resources/image/system/mandy.jpg"
-						alt="Aabriti Pradhan" width="250" height="200" />
+						src="${pageContext.request.contextPath}/resources/image/about/b.png"
+						alt="Aabriti Pradhan" class = "image"/>
 				</div>
 				<span class="member-name">Aabriti Pradhan</span>
 				<h3>CEO</h3>
@@ -57,8 +51,8 @@
 				<!-- Directly Inserting Image -->
 				<div class="team-image">
 					<img
-						src="${pageContext.request.contextPath}/resources/image/system/mandy.jpg"
-						alt="Aastha Paudel" width="250" height="200" />
+						src="${pageContext.request.contextPath}/resources/image/about/a.png"
+						alt="Aastha Paudel" class = "image" />
 				</div>
 				<span class="member-name">Aastha Paudel</span>
 				<h3>Founder</h3>
@@ -68,8 +62,7 @@
 			<div class="team-member">
 				<!-- Directly Inserting Image -->
 				<div class="team-image">
-					<img src="team-member-3.png" alt="Mandira Budhathoki" width="250"
-						height="200" />
+					<img src="${pageContext.request.contextPath}/resources/image/about/e.png" alt="Mandira Budhathoki" class = "image" />
 				</div>
 				<span class="member-name">Mandira Budhathoki</span>
 				<h3>Director</h3>
@@ -83,8 +76,8 @@
 				<!-- Directly Inserting Image -->
 				<div class="team-image">
 					<img
-						src="${pageContext.request.contextPath}/resources/image/system/mandy.jpg"
-						alt="Simona Thapa" width="250" height="200" />
+						src="${pageContext.request.contextPath}/resources/image/about/c.png"
+						alt="Simona Thapa" class = "image" />
 				</div>
 				<span class="member-name">Simona Thapa</span>
 				<h3>Manager</h3>
@@ -95,8 +88,8 @@
 				<!-- Directly Inserting Image -->
 				<div class="team-image">
 					<img
-						src="${pageContext.request.contextPath}/resources/image/system/mandy.jpg"
-						alt="Manusha Khadka" width="250" height="200" />
+						src="${pageContext.request.contextPath}/resources/image/about/d.png"
+						alt="Manusha Khadka" class = "image" />
 				</div>
 				<span class="member-name">Manusha Khadka</span>
 				<h3>Marketing Head</h3>
@@ -105,55 +98,6 @@
 			</div>
 		</div>
 	</div>
-
-	<%--  <main class="team-section">
-		<div class="team-member">
-			<img src="${pageContext.request.contextPath}/resources/image/system/aabriti.jpg">
-			<div class="info">
-				<h3>Aabriti Pradhan</h3>
-				<p>Skilled in React, HTML, CSS, and TypeScript, Aabriti brings
-					designs to life with attention to detail and performance
-					optimization. Recent projects include interactive dashboards,
-					e-commerce UIs, and component libraries built for scalability and
-					reuse..</p>
-			</div>
-		</div>
-
-		<div class="team-member reverse">
-			<div class="info">
-				<h3>Aastha Paudel</h3>
-				<p>UX/UI specialist who brings ideas to life with vibrant
-					visuals and great user flows.</p>
-			</div>
-			<img src="${pageContext.request.contextPath}/resources/image/system/aastha.jpg">
-		</div>
-
-		<div class="team-member">
-			<img src="${pageContext.request.contextPath}/resources/image/system/mandy.jpg">
-			<div class="info">
-				<h3>Mandira Budhathoki</h3>
-				<p>Backend expert who loves clean APIs and solid architecture.</p>
-			</div>
-		</div>
-
-		<div class="team-member reverse">
-			<div class="info">
-				<h3>Simona Thapa</h3>
-				<p>Full stack engineer who enjoys building robust systems and
-					intuitive designs.</p>
-			</div>
-			<img src="${pageContext.request.contextPath}/resources/image/system/simona.jpg">
-		</div>
-
-		<div class="team-member">
-			<img src="${pageContext.request.contextPath}/resources/image/system/manusha.jpg">
-			<div class="info">
-				<h3>Manusa Khadka</h3>
-				<p>QA specialist dedicated to delivering bug-free, high-quality
-					user experiences.</p>
-			</div>
-		</div>
-	</main> --%>
 
 	<jsp:include page="footer.jsp" />
 </body>

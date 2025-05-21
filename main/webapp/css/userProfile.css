@@ -141,8 +141,15 @@ input[type="text"] {
   color: white;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+}
+
+.save-btn:hover {
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 6px 8px slategray;
+	border-radius: 10px;
 }
 
 .sepe {
@@ -164,6 +171,8 @@ input[type="text"] {
 .butto {
 	width: 400px;;
 	margin-left: 100px;
+	display: flex;
+	justify-content: space-between;
 }
 
 
