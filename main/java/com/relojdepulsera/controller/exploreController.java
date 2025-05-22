@@ -1,5 +1,10 @@
 package com.relojdepulsera.controller;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 import java.io.IOException;
 import java.util.List;
 
@@ -14,7 +19,7 @@ import com.relojdepulsera.service.ExploreService;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/explore"})
 
-public class ExploreController extends HttpServlet {
+public class exploreController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private ExploreService exploreService = new ExploreService();

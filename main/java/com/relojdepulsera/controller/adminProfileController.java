@@ -15,12 +15,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 @WebServlet(urlPatterns = { "/admin-profile"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
 maxFileSize = 1024 * 1024 * 10, // 10MB
 maxRequestSize = 1024 * 1024 * 50) // 50MB
 
-public class AdminProfileController extends HttpServlet {
+public class adminProfileController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	ProfileService profileService = new ProfileService();

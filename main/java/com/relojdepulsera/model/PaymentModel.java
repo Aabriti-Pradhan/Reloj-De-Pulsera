@@ -1,5 +1,10 @@
 package com.relojdepulsera.model;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 public class PaymentModel {
 	
 	private int payment_id;

@@ -9,8 +9,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 @WebServlet(asyncSupported = true, urlPatterns = { "/userProfile" })
-public class UserProfileController extends HttpServlet {
+public class userProfileController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	private UserProfileService userService = new UserProfileService();

@@ -12,9 +12,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 @WebServlet(urlPatterns = { "/admin-order"})
 
-public class AdminOrderController extends HttpServlet {
+public class adminOrderController extends HttpServlet {
 	
 	/**
 	 * 

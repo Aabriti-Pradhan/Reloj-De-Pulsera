@@ -12,9 +12,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 @WebServlet(urlPatterns = { "/admin-customer"})
 
-public class AdminCustomerController extends  HttpServlet {
+public class adminCustomerController extends  HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static final String PAGE = "/WEB-INF/pages/admin-customer.jsp";

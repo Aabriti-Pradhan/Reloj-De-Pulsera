@@ -11,9 +11,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 @WebServlet(urlPatterns = { "/admin-dashboard", "/dashboard", "/admin" })
 
-public class AdminController extends HttpServlet {
+public class adminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String ADMIN_DASHBOARD_PAGE = "/WEB-INF/pages/admin-dashboard.jsp";
 	private DashboardService dashboardService = new DashboardService();

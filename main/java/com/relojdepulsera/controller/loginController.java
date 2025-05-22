@@ -23,7 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/login"})
 
-public class LoginController extends HttpServlet {
+public class loginController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private final ValidationUtil validationUtil = new ValidationUtil();

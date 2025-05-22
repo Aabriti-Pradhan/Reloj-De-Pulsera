@@ -13,8 +13,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 @WebServlet(asyncSupported = true, urlPatterns = { "/purchaseHistory" })
-public class PurchaseHistoryController extends HttpServlet {
+public class purchaseHistoryController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private PurchaseHistoryService historyService = new PurchaseHistoryService();

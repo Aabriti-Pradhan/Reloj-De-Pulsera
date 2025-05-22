@@ -10,6 +10,11 @@ import java.util.List;
 import com.relojdepulsera.config.DBconfig;
 import com.relojdepulsera.model.UserModel;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 public class RegisterService {
 	
 	private Connection dbConn;

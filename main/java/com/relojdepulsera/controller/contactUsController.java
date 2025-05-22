@@ -1,5 +1,10 @@
 package com.relojdepulsera.controller;
 
+/**
+ * @author Aabriti Pradhan
+ */
+
+
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
@@ -10,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/contactUs"})
 
-public class ContactUsController extends HttpServlet {
+public class contactUsController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
