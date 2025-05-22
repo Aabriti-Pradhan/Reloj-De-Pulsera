@@ -14,8 +14,11 @@
 	href="${pageContext.request.contextPath}/css/nav.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/message.css" />
-	<link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/footer.css" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 </head>
 
 <script>
@@ -111,99 +114,144 @@
 		<div class="hero-content">
 			<h1>Timeless. Exquisite. Sophisticated.</h1>
 			<p>Make Your Time Worthwhile.</p>
-			<button>Shop Now</button>
+			<a href="${pageContext.request.contextPath}/explore"><button>Shop
+					Now</button></a>
 		</div>
 
 
 	</header>
+	<div style="padding-left: 20px; padding-right: 20px">
 
 
-	<section class="watch-section">
-		<img
-			src="${pageContext.request.contextPath}/resources/image/system/watch 1.png"
-			alt="Watch 1">
-		<div>
-			<h2>Watch 1 Name</h2>
-			<p>Classic craftsmanship meets modern elegance.</p>
-		</div>
-	</section>
-
-	<section class="categories">
-		<img
-			src="${pageContext.request.contextPath}/resources/image/system/luxury 1.jpg"
-			alt="Limited"> <img
-			src="${pageContext.request.contextPath}/resources/image/system/straps.jpg"
-			alt="Straps"> <img
-			src="${pageContext.request.contextPath}/resources/image/system/boxes.png"
-			alt="Cases">
-	</section>
-
-	<section class="watch-section">
-		<div>
-			<h2>Watch 2 Name</h2>
-			<p>Luxury skeleton design for the modern gentleman.</p>
-		</div>
-		<img
-			src="${pageContext.request.contextPath}/resources/image/system/watch 2.jpg"
-			alt="Watch 2">
-	</section>
-
-	<section class="products">
-		<div class="product-card">
+		<section class="watch-section">
 			<img
-				src="${pageContext.request.contextPath}/resources/image/system/buy now watch 1.png"
-				alt="Watch A">
-			<p>Watch A</p>
-			<button>Buy Now</button>
-		</div>
-		<div class="product-card">
+				src="${pageContext.request.contextPath}/resources/image/system/watch 1.png"
+				alt="Watch 1">
+			<div class="para">
+				<h2>Luxe Chronorise</h2>
+				<br>
+				<p class="first">Classic craftsmanship meets modern elegance.</p>
+				<br>
+				<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.
+					Placerat in id cursus mi pretium tellus duis. Urna tempor pulvinar
+					vivamus fringilla lacus nec metus. Integer nunc posuere ut
+					hendrerit semper vel class. Conubia nostra inceptos himenaeos orci
+					varius natoque penatibus. Mus donec rhoncus eros lobortis nulla
+					molestie mattis. Purus est efficitur laoreet mauris pharetra
+					vestibulum fusce. Sodales consequat magna ante condimentum neque at
+					luctus. Ligula congue sollicitudin erat viverra ac tincidunt nam.
+					Lectus commodo augue arcu dignissim velit aliquam imperdiet. Cras
+					eleifend turpis fames primis vulputate ornare sagittis. Libero
+					feugiat tristique accumsan maecenas potenti ultricies habitant.
+					Cubilia curae hac habitasse platea dictumst lorem ipsum. Faucibus
+					ex sapien vitae pellentesque sem placerat in. Tempus leo eu aenean
+					sed diam urna tempor.</p>
+			</div>
+		</section>
+		<hr>
+
+		<section class="categories">
+			<div class="col image-overlay">
+				<img
+					src="${pageContext.request.contextPath}/resources/image/system/luxury 1.jpg"
+					alt="Limited">
+				<div class="overlay-text">Luxurious Watch</div>
+			</div>
+			<div class="col image-overlay">
+				<img
+					src="${pageContext.request.contextPath}/resources/image/system/straps.jpg"
+					alt="Straps">
+				<div class="overlay-text">Bands</div>
+			</div>
+			<div class="col image-overlay">
+				<img
+					src="${pageContext.request.contextPath}/resources/image/system/boxes.png"
+					alt="Cases">
+				<div class="overlay-text">Boxes</div>
+			</div>
+		</section>
+		<hr>
+
+		<section class="watch-section">
+			<div class="para">
+				<h2>Luxe Chronorise</h2>
+				<br>
+				<p class="first">Classic craftsmanship meets modern elegance.</p>
+				<br>
+				<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.
+					Placerat in id cursus mi pretium tellus duis. Urna tempor pulvinar
+					vivamus fringilla lacus nec metus. Integer nunc posuere ut
+					hendrerit semper vel class. Conubia nostra inceptos himenaeos orci
+					varius natoque penatibus. Mus donec rhoncus eros lobortis nulla
+					molestie mattis. Purus est efficitur laoreet mauris pharetra
+					vestibulum fusce. Sodales consequat magna ante condimentum neque at
+					luctus. Ligula congue sollicitudin erat viverra ac tincidunt nam.
+					Lectus commodo augue arcu dignissim velit aliquam imperdiet. Cras
+					eleifend turpis fames primis vulputate ornare sagittis. Libero
+					feugiat tristique accumsan maecenas potenti ultricies habitant.
+					Cubilia curae hac habitasse platea dictumst lorem ipsum. Faucibus
+					ex sapien vitae pellentesque sem placerat in. Tempus leo eu aenean
+					sed diam urna tempor.</p>
+			</div>
 			<img
-				src="${pageContext.request.contextPath}/resources/image/system/buy now watch 2.png"
-				alt="Watch B">
-			<p>Watch B</p>
-			<button>Buy Now</button>
-		</div>
-		<div class="product-card">
-			<img
-				src="${pageContext.request.contextPath}/resources/image/system/buy now watch 3.png"
-				alt="Watch C">
-			<p>Watch C</p>
-			<button>Buy Now</button>
-		</div>
-	</section>
+				src="${pageContext.request.contextPath}/resources/image/system/watch 2.jpg"
+				alt="Watch 1">
+		</section>
+		<hr>
 
-	<div class="gallery-container">
-		<h1>Featured Products</h1>
+		<section class="product-row">
+			<c:forEach var="watch" items="${watchList}">
+				<div class="card">
+					<div class="product">
+						<img
+							src="${pageContext.request.contextPath}/resources/image/watch/${watch.imageURL}"
+							alt="${watch.name}" />
+						<p>${watch.name}</p>
+						<p>$${watch.price}</p>
+						<a
+							href="${pageContext.request.contextPath}/productView?id=${watch.id}">
+							<button>View Product</button>
+						</a>
+					</div>
+				</div>
+			</c:forEach>
+		</section><hr>
 
-		<div class="image-toggle">
-			<!-- Slides -->
-			<div class="slide active"
-				style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 1.png');"></div>
-			<div class="slide"
-				style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 2.png');"></div>
-			<div class="slide"
-				style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 3.png');"></div>
-			<div class="slide"
-				style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 4.png');"></div>
 
-			<!-- Navigation Arrows -->
-			<div class="arrow prev" onclick="changeSlide(-1)">&#10094;</div>
-			<div class="arrow next" onclick="changeSlide(1)">&#10095;</div>
+
+		<div class="gallery-container">
+			<h1>Featured Products</h1>
+
+			<div class="image-toggle">
+				<!-- Slides -->
+				<div class="slide active"
+					style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 1.png');"></div>
+				<div class="slide"
+					style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 2.png');"></div>
+				<div class="slide"
+					style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 3.png');"></div>
+				<div class="slide"
+					style="background-image: url('${pageContext.request.contextPath}/resources/image/system/toggle image 4.png');"></div>
+
+				<!-- Navigation Arrows -->
+				<div class="arrow prev" onclick="changeSlide(-1)">&#10094;</div>
+				<div class="arrow next" onclick="changeSlide(1)">&#10095;</div>
+			</div>
+
+			<!-- Navigation Dots -->
+			<div class="dots-container">
+				<span class="dot active" onclick="currentSlide(1)"></span> <span
+					class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+					onclick="currentSlide(3)"></span> <span class="dot"
+					onclick="currentSlide(4)"></span>
+			</div>
 		</div>
 
-		<!-- Navigation Dots -->
-		<div class="dots-container">
-			<span class="dot active" onclick="currentSlide(1)"></span> <span
-				class="dot" onclick="currentSlide(2)"></span> <span class="dot"
-				onclick="currentSlide(3)"></span> <span class="dot"
-				onclick="currentSlide(4)"></span>
-		</div>
+		<section class="cta">
+			<h2>Crafted to make time matter.</h2>
+			<button>Learn More</button>
+		</section>
 	</div>
-
-	<section class="cta">
-		<h2>Crafted to make time matter.</h2>
-		<button>Learn More</button>
-	</section>
 
 	<jsp:include page="footer.jsp" />
 
